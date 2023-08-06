@@ -1,0 +1,12 @@
+﻿body {
+    
+}
+h1 {
+    font-size: 30px;
+    color: blue;
+}
+h2 {
+    font-display: fallback;
+    font-size: 15px;
+    color: green;
+}
