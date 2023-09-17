@@ -1,0 +1,23 @@
+﻿@model FIT5032_Assignment.Models.USER
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Username)
+        @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+}
+
