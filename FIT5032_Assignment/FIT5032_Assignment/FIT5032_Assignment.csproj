@@ -156,6 +156,7 @@
     <Compile Include="Models\USER.cs">
       <DependentUpon>Users_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\Users_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -30,6 +30,7 @@ namespace FIT5032_Assignment.Controllers
             return View();
         }
 
+        // GET: Account
         public ActionResult Login()
         {
             return View();
@@ -60,6 +61,14 @@ namespace FIT5032_Assignment.Controllers
                     ModelState.AddModelError("", "Invalid user type");
                 }
                 
+            }
+            else if (user.Username == null && user.Password != null)
+            {
+                ModelState.AddModelError("", "Please enter user name.");
+            }
+            else if (user.Password == null && user.Username != null)
+            {
+                ModelState.AddModelError("", "Please enter password.");
             }
             else
             {
