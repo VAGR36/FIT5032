@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FIT5032_Assignment.Models;
+using System.Web.Services.Description;
 
 namespace FIT5032_Assignment.Controllers
 {
@@ -17,7 +19,17 @@ namespace FIT5032_Assignment.Controllers
         // GET: CTMachines
         public ActionResult CTMachineManagement()
         {
-            return View(db.CTMachines.ToList());
+            var role = Session["Role"] as string;
+
+            if (role == "ADMIN")
+            {
+                return View(db.CTMachines.ToList());
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
         // GET: CTMachines/Details/5
@@ -38,7 +50,16 @@ namespace FIT5032_Assignment.Controllers
         // GET: CTMachines/Create
         public ActionResult Create()
         {
-            return View();
+            var role = Session["Role"] as string;
+            if (role == "ADMIN")
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
         // POST: CTMachines/Create

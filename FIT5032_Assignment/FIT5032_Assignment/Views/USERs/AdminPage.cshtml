@@ -1,17 +1,13 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Admin Page</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    <h1>This is the admin page</h1>
-    </div>
-</body>
-</html>
+<p>
+    <a href="~/Appointments/AppointmentManagement" Manage Appointments>Manage Appointments</a>
+    <a href="~/CTMachines/CTMachineManagement" Manage CT Machines>Manage CT Machines</a>
+    <a href="~/USERs/UserManagement" Manage Users>Manage Users</a>
+</p>
+

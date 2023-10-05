@@ -17,17 +17,33 @@ namespace FIT5032_Assignment.Controllers
         // GET: USERs
         public ActionResult UserManagement()
         {
-            return View(db.USERS.ToList());
+            var role = Session["Role"] as string;
+
+            if (role == "STAFF" && role == "ADMIN")
+            {
+                return View(db.USERS.ToList());
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
-        public ActionResult StaffPage()
-        {
-            return View();
-        }
 
         public ActionResult AdminPage()
         {
-            return View();
+            var role = Session["Role"] as string;
+
+            if (role == "ADMIN")
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
         // GET: USERs/Details/5
@@ -48,7 +64,17 @@ namespace FIT5032_Assignment.Controllers
         // GET: USERs/Create
         public ActionResult Create()
         {
-            return View();
+            var role = Session["Role"] as string;
+
+            if (role == "STAFF" && role == "ADMIN")
+            {
+                return View();
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
         // POST: USERs/Create

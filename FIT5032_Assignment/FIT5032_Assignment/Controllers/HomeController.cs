@@ -44,17 +44,17 @@ namespace FIT5032_Assignment.Controllers
             if (account != null)
             {
                 // Login Success
-                // Redirect to home page
+                // Redirect to home page of different kinds of users
                 Session["UserId"] = account.ID.ToString();
                 Session["Username"] = account.Username.ToString();
                 Session["Role"] = account.Role.ToString();
                 if (Session["Role"].ToString() == "ADMIN")
                 {
-                    return RedirectToAction("Create", "USERs");
+                    return RedirectToAction("AdminPage", "USERs");
                 }
                 else if (Session["Role"].ToString() == "STAFF")
                 {
-                    return RedirectToAction("StaffPage", "USERs");
+                    return RedirectToAction("AppointmentList", "Appointments");
                 }
                 else
                 {

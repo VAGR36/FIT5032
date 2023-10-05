@@ -81,3 +81,16 @@ C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\obj\Debug\FIT5
 C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\obj\Debug\FIT5032_Assignment.csproj.CopyComplete
 C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\obj\Debug\FIT5032_Assignment.dll
 C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\obj\Debug\FIT5032_Assignment.pdb
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Microsoft.Owin.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Microsoft.Owin.Host.HttpListener.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Microsoft.Owin.Hosting.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Owin.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\System.Net.Http.Formatting.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\System.Web.Http.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\System.Web.Http.Owin.dll
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Microsoft.Owin.xml
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Microsoft.Owin.Host.HttpListener.xml
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\Microsoft.Owin.Hosting.xml
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\System.Net.Http.Formatting.xml
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\System.Web.Http.xml
+C:\Users\90581\source\repos\FIT5032_Assignment\FIT5032_Assignment\bin\System.Web.Http.Owin.xml
