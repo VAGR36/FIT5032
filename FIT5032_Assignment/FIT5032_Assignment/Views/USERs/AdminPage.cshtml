@@ -3,11 +3,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin Page</h2>
+<div class="container mt-5">
+    <h2 class="mb-4">Admin Page</h2>
 
-<p>
-    <a href="~/Appointments/AppointmentManagement" Manage Appointments>Manage Appointments</a>
-    <a href="~/CTMachines/CTMachineManagement" Manage CT Machines>Manage CT Machines</a>
-    <a href="~/USERs/UserManagement" Manage Users>Manage Users</a>
-</p>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/appointment.png" srcset="~/images/appointment-640w.jpg 640w, ~/images/appointment-320w.jpg 320w"
+                     sizes="(max-width: 1280px) 640px,320px" alt="Manage Appointments">
 
+                <div class="card-body">
+                    <h5 class="card-title">Manage Appointments</h5>
+                    <p class="card-text">View and manage all appointments.</p>
+                    <a href="~/Appointments/AppointmentManagement" class="btn btn-primary">Go to Appointments</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/machine.png" srcset="~/images/machine-640w.jpg 640w, ~/images/machine-320w.jpg 320w"
+                     sizes="(max-width: 1280px) 640px,320px" alt="Manage CT Machines">
+                <div class="card-body">
+                    <h5 class="card-title">Manage CT Machines</h5>
+                    <p class="card-text">View and manage all CT Machines.</p>
+                    <a href="~/CTMachines/CTMachineManagement" class="btn btn-primary">Go to CT Machines</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="~/images/user.png" srcset="~/images/user-640w.jpg 640w, ~/images/user-320w.jpg 320w"
+                     sizes="(max-width: 1280px) 640px,320px" alt="Manage Users">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Users</h5>
+                    <p class="card-text">View and manage all users.</p>
+                    <a href="~/USERs/UserManagement" class="btn btn-primary">Go to Users</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

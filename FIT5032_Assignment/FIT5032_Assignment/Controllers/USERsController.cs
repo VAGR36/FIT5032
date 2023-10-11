@@ -19,7 +19,7 @@ namespace FIT5032_Assignment.Controllers
         {
             var role = Session["Role"] as string;
 
-            if (role == "STAFF" && role == "ADMIN")
+            if (role == "ADMIN")
             {
                 return View(db.USERS.ToList());
             }

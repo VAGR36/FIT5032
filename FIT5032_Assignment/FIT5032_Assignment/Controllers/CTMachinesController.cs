@@ -73,7 +73,7 @@ namespace FIT5032_Assignment.Controllers
             {
                 db.CTMachines.Add(cTMachine);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CTMachineManagement");
             }
 
             return View(cTMachine);
@@ -105,7 +105,7 @@ namespace FIT5032_Assignment.Controllers
             {
                 db.Entry(cTMachine).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("CTMachineManagement");
             }
             return View(cTMachine);
         }
@@ -133,7 +133,7 @@ namespace FIT5032_Assignment.Controllers
             CTMachine cTMachine = db.CTMachines.Find(id);
             db.CTMachines.Remove(cTMachine);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("CTMachineManagement");
         }
 
         protected override void Dispose(bool disposing)

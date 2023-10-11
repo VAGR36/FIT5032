@@ -35,7 +35,17 @@ namespace FIT5032_Assignment.Controllers
         // GET: Appointments
         public ActionResult AppointmentManagement()
         {
-            return View(db.Appointments.ToList());
+            var role = Session["Role"] as string;
+
+            if (role == "ADMIN")
+            {
+                return View(db.Appointments.ToList());
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
         }
 
         // GET: Appointments/Details/5
@@ -58,7 +68,7 @@ namespace FIT5032_Assignment.Controllers
         {
             var role = Session["Role"] as string;
 
-            if (role == "STAFF" && role == "ADMIN")
+            if (role == "STAFF" || role == "ADMIN")
             {
                 return View();
             }
@@ -79,9 +89,18 @@ namespace FIT5032_Assignment.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Check for day conflict
+                var conflictingAppointment = db.Appointments
+                                                .Where(a => a.MachineID == appointment.MachineID && DbFunctions.TruncateTime(a.Date) == DbFunctions.TruncateTime(appointment.Date))
+                                                .FirstOrDefault();
+                if (conflictingAppointment != null)
+                {
+                    ModelState.AddModelError("Date", "There is already an appointment for this machine on the same day.");
+                    return View(appointment);
+                }
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AppointmentManagement");
             }
 
             return View(appointment);
@@ -113,7 +132,7 @@ namespace FIT5032_Assignment.Controllers
             {
                 db.Entry(appointment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AppointmentManagement");
             }
             return View(appointment);
         }
@@ -141,7 +160,7 @@ namespace FIT5032_Assignment.Controllers
             Appointment appointment = db.Appointments.Find(id);
             db.Appointments.Remove(appointment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AppointmentManagement");
         }
 
         protected override void Dispose(bool disposing)

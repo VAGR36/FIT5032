@@ -347,7 +347,9 @@
     <Content Include="Views\Appointments\AppointmentList.cshtml" />
     <Content Include="Views\Appointments\AppointmentManagement.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\USERs\images\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
     <Content Include="Content\bootstrap.rtl.css.map" />
