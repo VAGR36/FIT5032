@@ -14,6 +14,7 @@ namespace FIT5032_Assignment.Controllers
     public class AppointmentsController : Controller
     {
         private AppointmentEntities1 db = new AppointmentEntities1();
+        private CTMachineEntities db2 = new CTMachineEntities();
 
 
         // Interactive table
@@ -66,6 +67,11 @@ namespace FIT5032_Assignment.Controllers
         // GET: Appointments/Create
         public ActionResult Create()
         {
+            // Fetch the list of machine IDs from your database
+            var machineList = db2.CTMachines.Select(m => new { m.ID }).ToList();
+
+            // Create a SelectList
+            ViewBag.MachineID = new SelectList(machineList, "ID", "ID");
             var role = Session["Role"] as string;
 
             if (role == "STAFF" || role == "ADMIN")
@@ -87,6 +93,11 @@ namespace FIT5032_Assignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,MachineID,Date,PatientName")] Appointment appointment)
         {
+            // Fetch the list of machine IDs from your database
+            var machineList = db2.CTMachines.Select(m => new { m.ID }).ToList();
+
+            // Create a SelectList
+            ViewBag.MachineID = new SelectList(machineList, "ID", "ID");
             if (ModelState.IsValid)
             {
                 // Check for day conflict
