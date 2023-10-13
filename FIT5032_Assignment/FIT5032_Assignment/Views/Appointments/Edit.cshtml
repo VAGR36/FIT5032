@@ -43,12 +43,22 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "AppointmentManagement")
+    @if (Session["Role"] != null)
+    {
+        if (Session["Role"].ToString() == "ADMIN")
+        {
+            @Html.ActionLink("Back to List", "AppointmentManagement")
+        }
+        else if (Session["Role"].ToString() == "STAFF")
+        {
+            @Html.ActionLink("Back to List", "AppointmentList")
+        }
+    }
 </div>

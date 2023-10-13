@@ -37,7 +37,19 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "AppointmentManagement")
-</p>
+
+
+<div>
+    @if (Session["Role"] != null)
+    {
+        if (Session["Role"].ToString() == "ADMIN")
+        {
+            @Html.ActionLink("Back to List", "AppointmentManagement")
+        }
+        else if (Session["Role"].ToString() == "STAFF")
+        {
+            @Html.ActionLink("Back to List", "AppointmentList")
+        }
+    }
+</div>
+

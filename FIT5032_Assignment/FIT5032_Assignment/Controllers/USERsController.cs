@@ -46,6 +46,7 @@ namespace FIT5032_Assignment.Controllers
             
         }
 
+
         // GET: USERs/Details/5
         public ActionResult Details(int? id)
         {
@@ -66,7 +67,7 @@ namespace FIT5032_Assignment.Controllers
         {
             var role = Session["Role"] as string;
 
-            if (role == "STAFF" && role == "ADMIN")
+            if (role == "ADMIN")
             {
                 return View();
             }
@@ -88,7 +89,7 @@ namespace FIT5032_Assignment.Controllers
             {
                 db.USERS.Add(uSER);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("UserManagement");
             }
 
             return View(uSER);
@@ -120,7 +121,7 @@ namespace FIT5032_Assignment.Controllers
             {
                 db.Entry(uSER).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("UserManagement");
             }
             return View(uSER);
         }
@@ -148,7 +149,7 @@ namespace FIT5032_Assignment.Controllers
             USER uSER = db.USERS.Find(id);
             db.USERS.Remove(uSER);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("UserManagement");
         }
 
         protected override void Dispose(bool disposing)

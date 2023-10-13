@@ -11,21 +11,29 @@
     @Html.ActionLink("Create New Appointment", "Create")
 </p>
 
+<!-- JS for interactive table-->
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
 
 <!-- Table -->
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MachineID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PatientName)
-        </th>
-        <th></th>
-    </tr>
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {

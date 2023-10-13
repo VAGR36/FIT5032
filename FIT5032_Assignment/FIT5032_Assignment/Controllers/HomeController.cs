@@ -56,6 +56,10 @@ namespace FIT5032_Assignment.Controllers
                 {
                     return RedirectToAction("AppointmentList", "Appointments");
                 }
+                else if (Session["Role"].ToString() == "CUSTOMER")
+                {
+                    return RedirectToAction("CustomerPage", "Appointments");
+                }
                 else
                 {
                     ModelState.AddModelError("", "Invalid user type");

@@ -16,7 +16,10 @@
     <!-- Javascript -->
     <script>
         $(function () {
-            $("#datepick").datepicker();
+            $("#datepick").datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
+
         });
     </script>
     @Html.AntiForgeryToken()
@@ -58,6 +61,17 @@
 
 }
 
+
 <div>
-    @Html.ActionLink("Back to List", "AppointmentManagement")
+    @if (Session["Role"] != null)
+    {
+        if (Session["Role"].ToString() == "ADMIN")
+        {
+            @Html.ActionLink("Back to List", "AppointmentManagement")
+        }
+        else if (Session["Role"].ToString() == "STAFF")
+        {
+            @Html.ActionLink("Back to List", "AppointmentList")
+        }
+    }
 </div>

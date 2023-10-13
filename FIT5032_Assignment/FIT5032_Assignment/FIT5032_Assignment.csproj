@@ -346,6 +346,7 @@
     <Content Include="Views\Appointments\Edit.cshtml" />
     <Content Include="Views\Appointments\AppointmentList.cshtml" />
     <Content Include="Views\Appointments\AppointmentManagement.cshtml" />
+    <Content Include="Views\Appointments\CustomerPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\USERs\images\" />

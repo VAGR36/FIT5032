@@ -32,6 +32,21 @@ namespace FIT5032_Assignment.Controllers
                 
         }
 
+        public ActionResult CustomerPage()
+        {
+            var role = Session["Role"] as string;
+
+            if (role == "CUSTOMER")
+            {
+                return View(db.Appointments.ToList());
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+        }
+
         // GET: Appointments
         public ActionResult AppointmentManagement()
         {
@@ -100,7 +115,17 @@ namespace FIT5032_Assignment.Controllers
                 }
                 db.Appointments.Add(appointment);
                 db.SaveChanges();
-                return RedirectToAction("AppointmentManagement");
+                var role = Session["Role"] as string;
+
+                if (role == "ADMIN")
+                {
+                    return RedirectToAction("AppointmentManagement");
+                }
+                else
+                {
+                    return RedirectToAction("AppointmentList");
+                }
+                
             }
 
             return View(appointment);
@@ -132,7 +157,16 @@ namespace FIT5032_Assignment.Controllers
             {
                 db.Entry(appointment).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("AppointmentManagement");
+                var role = Session["Role"] as string;
+
+                if (role == "ADMIN")
+                {
+                    return RedirectToAction("AppointmentManagement");
+                }
+                else
+                {
+                    return RedirectToAction("AppointmentList");
+                }
             }
             return View(appointment);
         }
@@ -160,7 +194,16 @@ namespace FIT5032_Assignment.Controllers
             Appointment appointment = db.Appointments.Find(id);
             db.Appointments.Remove(appointment);
             db.SaveChanges();
-            return RedirectToAction("AppointmentManagement");
+            var role = Session["Role"] as string;
+
+            if (role == "ADMIN")
+            {
+                return RedirectToAction("AppointmentManagement");
+            }
+            else
+            {
+                return RedirectToAction("AppointmentList");
+            }
         }
 
         protected override void Dispose(bool disposing)
