@@ -37,7 +37,7 @@
         });
     </script>
 
-
+    @*User @Html.EditorFor and @Html.ValidationMessageFor to encode the output to prevent XSS*@
     <div class="form-group" id="Description">
         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -59,6 +59,7 @@
         });
     </script>
 
+    @*User @Html.EditorFor and @Html.ValidationMessageFor to encode the output to prevent XSS*@
     <div class="form-group" id="Status">
         @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
