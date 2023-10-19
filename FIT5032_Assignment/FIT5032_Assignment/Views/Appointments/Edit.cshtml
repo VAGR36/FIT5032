@@ -7,10 +7,26 @@
 
 <h2>Edit Appointments</h2>
 
+<!-- Empty Value Check -->
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var form = document.querySelector("form");
+            form.addEventListener("submit", function (e) {
+                var inputFields = document.querySelectorAll(".form-control");
+                inputFields.forEach(function(field) {
+                    if (field.value.trim() === "") {
+                        e.preventDefault();
+                        alert(field.getAttribute("name") + " cannot be empty");
+                    }
+                });
+            });
+        });
+</script>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Appointment</h4>
         <hr />
